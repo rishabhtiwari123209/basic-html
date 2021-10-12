@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <style>
+            .i{
+                margin-right: 10px;
+                border-radius: 20px;
+                margin-top: 10px;
+
+            }
+            #d{
+                margin-left: 800px;
+            }
+        </style>
+    </head>
+    <body>
+        <form action=""><fieldset> <legend>Personalia:</legend>
+            Enter yourFirst name: <input type="text" class="i" placeholder="enter your first name"><br>
+            Enter your mid name: <input type="text"  class="i" placeholder="enter your  mid name"><br>
+            Enter your last name: <input type="text"  class="i" placeholder="enter your last name">
+            <br> Enter your Student code: <input type="number" class="i"  placeholder="enter Student code"><br>
+            Enter your course <br><input type="checkbox" class="check" name="coure" value="CSE"><label for="c1">CSE</label>
+            <input type="checkbox" class="check" name="coure" value="EEE"><label for="c1">EEE</label>
+            <input type="checkbox" class="check" name="coure" value="ME"><label for="c1">ME</label>
+            <input type="checkbox" class="check" name="coure" value="CE"><label for="c1">CE</label><br></fieldset>
+            <fieldset>
+            <legend>Application for leave:</legend><p>To<br>The H.O.D. of <input list="course" >
+                <datalist id="course">
+                  <option value="EEE">
+                  <option value="CSE">
+                  <option value="CSE">
+                  <option value="ME">
+                  <option value="CTE">
+                </datalist>
+                
+                <br>AKS University Satna(M.P.) <br><br>Subject:Application for <input type="text" placeholder="enter the reason">
+            <br><br>Respected Sir/Madam,<br>
+            <p class="i">       Most respectfully, I beg to state that I am
+                 not in a condition to come to the school since I am suffering
+                  from fever. I have been prescribed by our family doctor
+                   o take proper rest for at least <input type="number" class="i" placeholder="enter no. of days"> days. Hence,
+                    kindly grant me leave from <input type="date" class="i"> to<input type="date" class="i"> .
+                  I shall be really grateful to you.</p>
+                  <br><br>Thankyou you,<br><br>Your obediently,                                                                  
+                                                   <div id="d">Digital sign <input type="text" placeholder="enter your name"></div> <br>
+                  <input type="text" placeholder="your name " class="i"><br>
+                  <input type="text" placeholder="enter student id." class="i">
+
+            </p></fieldset>
+        </form>
+    </body>
+</html>
