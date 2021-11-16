@@ -1,0 +1,199 @@
+[3:24 PM, 11/13/2021] Rishabh Tiwari: <html>
+<head>
+<style>
+.table2
+{
+background-color:yellow;
+color:blue;
+}
+
+
+</style>
+
+<?php
+error_reporting($level=NULL);
+$con1=mysqli_connect("localhost","root","","CS");
+$a=$_POST['t1'];
+
+
+if(isset($_POST['s2']))
+{
+$sel="select query,status,femail,fname,con from tt where fname='$a'";
+$dd=mysqli_query($con1,$sel);
+$dd1=mysqli_fetch_array($dd);
+
+echo "<table id='table1' class='table2' border='1' cellspacing='5' cellpadding='5' >";
+
+echo "<tr><th>Users Message</th><th>Available status</th><th>Users email id</th><th>Person Name</th><th>Contact No</th></tr>";
+
+
+echo "<tr><td>".$dd1[0]."</td><td>".$dd1[1]."</td><td>".$dd1[2]."</td><td>".$dd1[3]."</td><td>".$dd1[4]."</td></tr>";
+
+
+echo "</table>";
+}
+
+
+?>
+</head>
+<body>
+<form method="POST" name="m1">
+Enter your name: <input type="text" name="t1" /><br>
+<input type="submit" name="s2" value="view"/>&nbsp;
+
+
+
+</form>
+
+
+</body>
+</html>
+[3:25 PM, 11/13/2021] Rishabh Tiwari: <!doctype=html>  
+<html> 
+<head><title>My first web page</title></head>
+<body style="bgcolor:gold; color:green">
+<form>
+Enter your Name:
+<input type="text" name="t1"/><br>
+
+Enter your 12th Percentage:
+<input type="number" name="t2" min="65" max="100"/><br>
+
+
+Enter your Graduation Percentage:
+<input type="number" name="t3" min="65" max="100"/><br>
+
+
+Enter your PG Percentage:
+<input type="number" name="t4" min="65" max="100"/><br>
+
+Total:<input type="number" name="t5" /><br>
+<input type="submit" name="s1"/>
+</form>
+</body>
+</html>
+<html>
+<head>
+
+
+<?php
+error_reporting($level=NULL);
+$con1=mysqli_connect("localhost","root","","CS");
+$a=$_POST['t1'];
+$b=$_POST['t2'];
+$c=$_POST['t3'];
+$d=$_POST['t4'];
+$e=$_POST['t5'];
+if(isset($_POST['s1']))
+{
+$ins="insert into tt(fname,con,femail,query,status) values('$a',$b,'$c','$d',$e)";
+mysqli_query($con1,$ins);
+}
+if(isset($_POST['s2']))
+{
+$sel="select * from tt where fname='$a' and status='1'";
+$dd=mysqli_query($con1,$sel);
+$dd1=mysqli_fetch_array($dd);
+}
+
+if(isset($_POST['s3']))
+{
+//$sel6="delete from tt where fname='$a'";
+//$dd6=mysqli_query($con1,$sel6);
+
+$sel7="update tt set status=0 where fname='$a'";
+$dd7=mysqli_query($con1,$sel7);
+echo "One record has deleted";
+
+}
+if(isset($_POST['s4']))
+{
+$sel99="update tt set fname='$a',con='$b',femail='$c',query='$d' where fname='$a'";
+$dd99=mysqli_query($con1,$sel99);
+echo "record has updated";
+
+}
+?>
+</head>
+<body>
+<form method="POST" name="m1">
+Enter your name: <input type="text" name="t1" value="<?php
+echo $dd1[0];
+?>"/><br>
+Enter your contact number: <input type="text" name="t2" value="<?php
+echo $dd1[1];
+?>"/><br>
+Enter your Email: <input type="text" name="t3" value="<?php
+echo $dd1[2];
+?>"/><br>
+Query:<textarea name="t4" cols="35" rows="3"><?php
+echo $dd1[3];
+?></textarea><br>
+Status: <input type="text" name="t5"/><br>
+<input type="submit" name="s1" value="Please Save"/>&nbsp;
+<input type="submit" name="s2" value="view"/>&nbsp;
+<input type="submit" name="s3" value="delete"/>&nbsp;
+<input type="submit" name="s4" value="Edit"/>&nbsp;
+download.php
+  files/a.jpg
+  files/gate1.jpg
+  index.html
+  <!DOCTYPE html>
+<html>
+<head>
+	<title>Download File using PHP</title>
+</head>
+<body>
+
+<h2>Download File from HERE : </h2>
+<a href="download.php?file=gate1.jpg">click HERE gate1</a> <br>
+<a href="download.php?file=a.jpg">click HERE a.jpg</a>
+
+
+
+</body>
+</html>
+
+
+<?php 
+if(!empty($_GET['file']))
+{
+	$filename = basename($_GET['file']);
+	$filepath = 'files/' . $filename;
+	if(!empty($filename) && file_exists($filepath)){
+
+//Define Headers
+
+		header("Content-Disposition: attachment; filename=$filename");
+		header("Content-Type: application/zip");
+		header("Content-Transfer-Emcoding: binary");
+
+		readfile($filepath);
+		exit;
+
+	}
+	else{
+		echo "This File Does not exist.";
+	}
+}
+
+ ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
